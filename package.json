@@ -4,6 +4,7 @@
   "description": "chat using web sockets",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "test",
     "lint": "DEBUG=eslint:cli,eslint:file-enumerator,eslint:cli-engine,eslint:source-code-fixer eslint . --fix"
   },
@@ -23,7 +24,8 @@
   "homepage": "https://github.com/veeru76/Chat#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "json-schema": "git+ssh://git@github.com:iphios/json-schema.git#4574158dbdb32c0d92860070be39824f25d83e2b"
+    "json-schema": "git+ssh://git@github.com:iphios/json-schema.git#4574158dbdb32c0d92860070be39824f25d83e2b",
+    "socket.io": "^4.5.1"
   },
   "devDependencies": {
     "eslint": "^8.20.0"
