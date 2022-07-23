@@ -1,0 +1,31 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "chat using web sockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "DEBUG=eslint:cli,eslint:file-enumerator,eslint:cli-engine,eslint:source-code-fixer eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veeru76/Chat.git"
+  },
+  "keywords": [
+    "chat",
+    "websockets"
+  ],
+  "author": "veeranjaneya reddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veeru76/Chat/issues"
+  },
+  "homepage": "https://github.com/veeru76/Chat#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "json-schema": "git+ssh://git@github.com:iphios/json-schema.git#4574158dbdb32c0d92860070be39824f25d83e2b"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
+}
