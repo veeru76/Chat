@@ -1,8 +1,9 @@
 'use strict';
 const moment = require('moment');
 
-function generateMessage(message) {
+function generateMessage(username, message) {
   return {
+    username,
     message,
     time : moment().format('h:mm a')
   };

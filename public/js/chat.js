@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 'use strict';
 const $chatForm = document.querySelector('#message-form');
@@ -7,13 +9,20 @@ const $messages = document.querySelector('#messages');
 
 //Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML;
+const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML;
+//options
+const {
+  username, room
+} = Qs.parse(location.search, {ignoreQueryPrefix : true});
+console.log('{username, room}', {username, room});
 
 // eslint-disable-next-line no-undef, no-unused-vars
-const socket = io.connect('http://localhost:3000', {reconnect: true});
+const socket = io();
 socket.on('message', message => {
   // eslint-disable-next-line no-console
   console.log(message);
   const html = Mustache.render(messageTemplate, {
+    'username' : message.username,
     'message' : message.message,
     'createdAt' : message.time
   });
@@ -37,4 +46,18 @@ $chatForm.addEventListener('submit', (e) => {
     }
     console.log('message delivered');
   });
+});
+
+socket.on('roomData', ({
+  room, users
+}) => {
+  const html = Mustache.render(sidebarTemplate, {
+    room, users
+  });
+  document.querySelector('#sidebar').innerHTML = html;
+});
+socket.emit('join', {username, room}, (error) => {
+  if(error) {
+    alert(error);
+  }
 });
